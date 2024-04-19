@@ -1,0 +1,1258 @@
+Analysis & Synthesis report for LAB7
+Fri Jun 02 09:56:29 2023
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. Logic Cells Representing Combinational Loops
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Port Connectivity Checks: "DecodeStage:DS|ControlUnit:CU"
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
+ 18. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri Jun 02 09:56:29 2023           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; LAB7                                            ;
+; Top-level Entity Name              ; ARM                                             ;
+; Family                             ; Cyclone II                                      ;
+; Total logic elements               ; 19,144                                          ;
+;     Total combinational functions  ; 9,206                                           ;
+;     Dedicated logic registers      ; 10,573                                          ;
+; Total registers                    ; 10573                                           ;
+; Total pins                         ; 418                                             ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C35F672C6       ;                    ;
+; Top-level entity name                                                      ; ARM                ; LAB7               ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 20          ;
+; Maximum allowed            ; 14          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-20        ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                   ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                     ; Library ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------+---------+
+; ../Verilog/WriteBackStage.v      ; yes             ; User Verilog HDL File  ; D:/Education/Semester7/CA_Lab/LAB7/Verilog/WriteBackStage.v      ;         ;
+; ../Verilog/Val2_Gen.v            ; yes             ; User Verilog HDL File  ; D:/Education/Semester7/CA_Lab/LAB7/Verilog/Val2_Gen.v            ;         ;
+; ../Verilog/status_reg.v          ; yes             ; User Verilog HDL File  ; D:/Education/Semester7/CA_Lab/LAB7/Verilog/status_reg.v          ;         ;
+; ../Verilog/SRAM_Controller.v     ; yes             ; User Verilog HDL File  ; D:/Education/Semester7/CA_Lab/LAB7/Verilog/SRAM_Controller.v     ;         ;
+; ../Verilog/RegisterFile.v        ; yes             ; User Verilog HDL File  ; D:/Education/Semester7/CA_Lab/LAB7/Verilog/RegisterFile.v        ;         ;
+; ../Verilog/MemAccessReg.v        ; yes             ; User Verilog HDL File  ; D:/Education/Semester7/CA_Lab/LAB7/Verilog/MemAccessReg.v        ;         ;
+; ../Verilog/HazardDetectionUnit.v ; yes             ; User Verilog HDL File  ; D:/Education/Semester7/CA_Lab/LAB7/Verilog/HazardDetectionUnit.v ;         ;
+; ../Verilog/FreqDivider.v         ; yes             ; User Verilog HDL File  ; D:/Education/Semester7/CA_Lab/LAB7/Verilog/FreqDivider.v         ;         ;
+; ../Verilog/ForwardingUnit.v      ; yes             ; User Verilog HDL File  ; D:/Education/Semester7/CA_Lab/LAB7/Verilog/ForwardingUnit.v      ;         ;
+; ../Verilog/FetchStage.v          ; yes             ; User Verilog HDL File  ; D:/Education/Semester7/CA_Lab/LAB7/Verilog/FetchStage.v          ;         ;
+; ../Verilog/FetchReg.v            ; yes             ; User Verilog HDL File  ; D:/Education/Semester7/CA_Lab/LAB7/Verilog/FetchReg.v            ;         ;
+; ../Verilog/ExecuteStage.v        ; yes             ; User Verilog HDL File  ; D:/Education/Semester7/CA_Lab/LAB7/Verilog/ExecuteStage.v        ;         ;
+; ../Verilog/ExecuteReg.v          ; yes             ; User Verilog HDL File  ; D:/Education/Semester7/CA_Lab/LAB7/Verilog/ExecuteReg.v          ;         ;
+; ../Verilog/DecodeStage.v         ; yes             ; User Verilog HDL File  ; D:/Education/Semester7/CA_Lab/LAB7/Verilog/DecodeStage.v         ;         ;
+; ../Verilog/DecodeReg.v           ; yes             ; User Verilog HDL File  ; D:/Education/Semester7/CA_Lab/LAB7/Verilog/DecodeReg.v           ;         ;
+; ../Verilog/ControlUnit.v         ; yes             ; User Verilog HDL File  ; D:/Education/Semester7/CA_Lab/LAB7/Verilog/ControlUnit.v         ;         ;
+; ../Verilog/Condition_Check.v     ; yes             ; User Verilog HDL File  ; D:/Education/Semester7/CA_Lab/LAB7/Verilog/Condition_Check.v     ;         ;
+; ../Verilog/cache_controller.v    ; yes             ; User Verilog HDL File  ; D:/Education/Semester7/CA_Lab/LAB7/Verilog/cache_controller.v    ;         ;
+; ../Verilog/ARM.v                 ; yes             ; User Verilog HDL File  ; D:/Education/Semester7/CA_Lab/LAB7/Verilog/ARM.v                 ;         ;
+; ../Verilog/ALU.v                 ; yes             ; User Verilog HDL File  ; D:/Education/Semester7/CA_Lab/LAB7/Verilog/ALU.v                 ;         ;
+; ../Verilog/adder_addr.v          ; yes             ; User Verilog HDL File  ; D:/Education/Semester7/CA_Lab/LAB7/Verilog/adder_addr.v          ;         ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------+---------+
+
+
++----------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                          ;
++---------------------------------------------+------------------------+
+; Resource                                    ; Usage                  ;
++---------------------------------------------+------------------------+
+; Estimated Total logic elements              ; 19,144                 ;
+;                                             ;                        ;
+; Total combinational functions               ; 9206                   ;
+; Logic element usage by number of LUT inputs ;                        ;
+;     -- 4 input functions                    ; 8183                   ;
+;     -- 3 input functions                    ; 742                    ;
+;     -- <=2 input functions                  ; 281                    ;
+;                                             ;                        ;
+; Logic elements by mode                      ;                        ;
+;     -- normal mode                          ; 9012                   ;
+;     -- arithmetic mode                      ; 194                    ;
+;                                             ;                        ;
+; Total registers                             ; 10573                  ;
+;     -- Dedicated logic registers            ; 10573                  ;
+;     -- I/O registers                        ; 0                      ;
+;                                             ;                        ;
+; I/O pins                                    ; 418                    ;
+; Embedded Multiplier 9-bit elements          ; 0                      ;
+; Maximum fan-out node                        ; FreqDivider:FD|counter ;
+; Maximum fan-out                             ; 10573                  ;
+; Total fan-out                               ; 77811                  ;
+; Average fan-out                             ; 3.85                   ;
++---------------------------------------------+------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                     ;
++--------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------+--------------+
+; Compilation Hierarchy Node     ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                         ; Library Name ;
++--------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------+--------------+
+; |ARM                           ; 9206 (1)          ; 10573 (0)    ; 0           ; 0            ; 0       ; 0         ; 418  ; 0            ; |ARM                                        ; work         ;
+;    |DecodeReg:DR|              ; 706 (706)         ; 127 (127)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ARM|DecodeReg:DR                           ; work         ;
+;    |DecodeStage:DS|            ; 82 (9)            ; 480 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ARM|DecodeStage:DS                         ; work         ;
+;       |Condition_Check:CC|     ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ARM|DecodeStage:DS|Condition_Check:CC      ; work         ;
+;       |ControlUnit:CU|         ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ARM|DecodeStage:DS|ControlUnit:CU          ; work         ;
+;       |RegisterFile:RF|        ; 49 (49)           ; 480 (480)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ARM|DecodeStage:DS|RegisterFile:RF         ; work         ;
+;    |ExecuteReg:ER|             ; 0 (0)             ; 71 (71)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ARM|ExecuteReg:ER                          ; work         ;
+;    |ExecuteStage:ES|           ; 1096 (183)        ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ARM|ExecuteStage:ES                        ; work         ;
+;       |ALU:ALU1|               ; 410 (410)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ARM|ExecuteStage:ES|ALU:ALU1               ; work         ;
+;       |Val2_Gen:VAL2GENERATOR| ; 503 (503)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ARM|ExecuteStage:ES|Val2_Gen:VAL2GENERATOR ; work         ;
+;    |FetchReg:FR|               ; 31 (31)           ; 59 (59)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ARM|FetchReg:FR                            ; work         ;
+;    |FetchStage:FS|             ; 192 (192)         ; 30 (30)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ARM|FetchStage:FS                          ; work         ;
+;    |FreqDivider:FD|            ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ARM|FreqDivider:FD                         ; work         ;
+;    |HazardDetectionUnit:HDU|   ; 15 (15)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ARM|HazardDetectionUnit:HDU                ; work         ;
+;    |MemAccessReg:MAR|          ; 0 (0)             ; 70 (70)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ARM|MemAccessReg:MAR                       ; work         ;
+;    |SRAM_Controller:SC|        ; 125 (125)         ; 67 (67)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ARM|SRAM_Controller:SC                     ; work         ;
+;    |WriteBackStage:WBS|        ; 32 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ARM|WriteBackStage:WBS                     ; work         ;
+;    |cache_controller:CC|       ; 6925 (6925)       ; 9664 (9664)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ARM|cache_controller:CC                    ; work         ;
+;    |status_reg:sr|             ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ARM|status_reg:sr                          ; work         ;
++--------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                            ;
++-----------------------------------------------------+-------------------------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal                             ; Free of Timing Hazards ;
++-----------------------------------------------------+-------------------------------------------------+------------------------+
+; SRAM_Controller:SC|SRAM_ADDR[0]                     ; SRAM_Controller:SC|Mux21                        ; yes                    ;
+; SRAM_Controller:SC|SRAM_ADDR[1]                     ; SRAM_Controller:SC|Mux21                        ; yes                    ;
+; SRAM_Controller:SC|SRAM_ADDR[2]                     ; SRAM_Controller:SC|Mux21                        ; yes                    ;
+; SRAM_Controller:SC|SRAM_ADDR[3]                     ; SRAM_Controller:SC|Mux21                        ; yes                    ;
+; SRAM_Controller:SC|SRAM_ADDR[4]                     ; SRAM_Controller:SC|Mux21                        ; yes                    ;
+; SRAM_Controller:SC|SRAM_ADDR[5]                     ; SRAM_Controller:SC|Mux21                        ; yes                    ;
+; SRAM_Controller:SC|SRAM_ADDR[6]                     ; SRAM_Controller:SC|Mux21                        ; yes                    ;
+; SRAM_Controller:SC|SRAM_ADDR[7]                     ; SRAM_Controller:SC|Mux21                        ; yes                    ;
+; SRAM_Controller:SC|SRAM_ADDR[8]                     ; SRAM_Controller:SC|Mux21                        ; yes                    ;
+; SRAM_Controller:SC|SRAM_ADDR[9]                     ; SRAM_Controller:SC|Mux21                        ; yes                    ;
+; SRAM_Controller:SC|SRAM_ADDR[10]                    ; SRAM_Controller:SC|Mux21                        ; yes                    ;
+; SRAM_Controller:SC|SRAM_ADDR[11]                    ; SRAM_Controller:SC|Mux21                        ; yes                    ;
+; SRAM_Controller:SC|SRAM_ADDR[12]                    ; SRAM_Controller:SC|Mux21                        ; yes                    ;
+; SRAM_Controller:SC|SRAM_ADDR[13]                    ; SRAM_Controller:SC|Mux21                        ; yes                    ;
+; SRAM_Controller:SC|SRAM_ADDR[14]                    ; SRAM_Controller:SC|Mux21                        ; yes                    ;
+; SRAM_Controller:SC|SRAM_ADDR[15]                    ; SRAM_Controller:SC|Mux21                        ; yes                    ;
+; SRAM_Controller:SC|SRAM_ADDR[16]                    ; SRAM_Controller:SC|Mux21                        ; yes                    ;
+; SRAM_Controller:SC|SRAM_ADDR[17]                    ; SRAM_Controller:SC|Mux21                        ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[7]      ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[6]      ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[5]      ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[4]      ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[3]      ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[2]      ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[1]      ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[0]      ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[8]      ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[9]      ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[10]     ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[11]     ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[12]     ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[13]     ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[14]     ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[15]     ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[16]     ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[17]     ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[18]     ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31]     ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[30]     ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[29]     ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[28]     ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[27]     ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[26]     ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[25]     ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[24]     ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[23]     ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[22]     ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[21]     ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[20]     ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[19]     ; ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] ; yes                    ;
+; Number of user-specified and inferred latches = 50  ;                                                 ;                        ;
++-----------------------------------------------------+-------------------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------------+
+; Logic Cells Representing Combinational Loops               ;
++--------------------------------------------------------+---+
+; Logic Cell Name                                        ;   ;
++--------------------------------------------------------+---+
+; HazardDetectionUnit:HDU|hazard_detect~0                ;   ;
+; Number of logic cells representing combinational loops ; 1 ;
++--------------------------------------------------------+---+
+Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                             ;
++---------------------------------------------------+--------------------------------------------+
+; Register name                                     ; Reason for Removal                         ;
++---------------------------------------------------+--------------------------------------------+
+; DecodeReg:DR|Signed_imm_24[7,8,11,12,15,16,19,22] ; Merged with DecodeReg:DR|Signed_imm_24[23] ;
+; DecodeReg:DR|Signed_imm_24[9,10,13,14,17,18,20]   ; Merged with DecodeReg:DR|Signed_imm_24[21] ;
+; DecodeReg:DR|Shift_operand[7]                     ; Merged with DecodeReg:DR|Signed_imm_24[21] ;
+; DecodeReg:DR|Shift_operand[6]                     ; Merged with DecodeReg:DR|Signed_imm_24[6]  ;
+; DecodeReg:DR|Shift_operand[0]                     ; Merged with DecodeReg:DR|Signed_imm_24[0]  ;
+; FetchReg:FR|Instruction[10]                       ; Merged with FetchReg:FR|Instruction[27]    ;
+; DecodeReg:DR|Shift_operand[4]                     ; Merged with DecodeReg:DR|Signed_imm_24[4]  ;
+; DecodeReg:DR|Shift_operand[3]                     ; Merged with DecodeReg:DR|Signed_imm_24[3]  ;
+; DecodeReg:DR|Shift_operand[2]                     ; Merged with DecodeReg:DR|Signed_imm_24[2]  ;
+; FetchReg:FR|Instruction[9]                        ; Merged with FetchReg:FR|Instruction[11]    ;
+; FetchReg:FR|Instruction[5]                        ; Merged with FetchReg:FR|Instruction[7]     ;
+; DecodeReg:DR|Signed_imm_24[21]                    ; Merged with DecodeReg:DR|Signed_imm_24[23] ;
+; DecodeReg:DR|Shift_operand[5]                     ; Merged with DecodeReg:DR|Signed_imm_24[23] ;
+; DecodeReg:DR|Shift_operand[1]                     ; Merged with DecodeReg:DR|Signed_imm_24[1]  ;
+; DecodeReg:DR|Shift_operand[9]                     ; Merged with DecodeReg:DR|Shift_operand[11] ;
+; DecodeReg:DR|PC[1]                                ; Merged with DecodeReg:DR|PC[0]             ;
+; DecodeReg:DR|Signed_imm_24[5]                     ; Merged with DecodeReg:DR|Signed_imm_24[23] ;
+; FetchReg:FR|PC[1]                                 ; Merged with FetchReg:FR|PC[0]              ;
+; FetchStage:FS|PC_Reg[1]                           ; Merged with FetchStage:FS|PC_Reg[0]        ;
+; FetchReg:FR|PC[0]                                 ; Stuck at GND due to stuck port data_in     ;
+; DecodeReg:DR|PC[0]                                ; Stuck at GND due to stuck port data_in     ;
+; FetchStage:FS|PC_Reg[0]                           ; Stuck at GND due to stuck port data_in     ;
+; Total Number of Removed Registers = 35            ;                                            ;
++---------------------------------------------------+--------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                 ;
++-------------------+---------------------------+---------------------------------------------+
+; Register name     ; Reason for Removal        ; Registers Removed due to This Register      ;
++-------------------+---------------------------+---------------------------------------------+
+; FetchReg:FR|PC[0] ; Stuck at GND              ; DecodeReg:DR|PC[0], FetchStage:FS|PC_Reg[0] ;
+;                   ; due to stuck port data_in ;                                             ;
++-------------------+---------------------------+---------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 10573 ;
+; Number of registers using Synchronous Clear  ; 94    ;
+; Number of registers using Synchronous Load   ; 33    ;
+; Number of registers using Asynchronous Clear ; 10572 ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 10376 ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------+
+; Inverted Register Statistics                             ;
++------------------------------------------------+---------+
+; Inverted Register                              ; Fan out ;
++------------------------------------------------+---------+
+; DecodeStage:DS|RegisterFile:RF|Reg_File[13][3] ; 2       ;
+; DecodeStage:DS|RegisterFile:RF|Reg_File[10][3] ; 2       ;
+; DecodeStage:DS|RegisterFile:RF|Reg_File[9][3]  ; 2       ;
+; DecodeStage:DS|RegisterFile:RF|Reg_File[8][3]  ; 2       ;
+; DecodeStage:DS|RegisterFile:RF|Reg_File[11][3] ; 2       ;
+; DecodeStage:DS|RegisterFile:RF|Reg_File[12][3] ; 2       ;
+; DecodeStage:DS|RegisterFile:RF|Reg_File[14][3] ; 2       ;
+; DecodeStage:DS|RegisterFile:RF|Reg_File[5][2]  ; 2       ;
+; DecodeStage:DS|RegisterFile:RF|Reg_File[6][2]  ; 2       ;
+; DecodeStage:DS|RegisterFile:RF|Reg_File[4][2]  ; 2       ;
+; DecodeStage:DS|RegisterFile:RF|Reg_File[7][2]  ; 2       ;
+; DecodeStage:DS|RegisterFile:RF|Reg_File[13][2] ; 2       ;
+; DecodeStage:DS|RegisterFile:RF|Reg_File[12][2] ; 2       ;
+; DecodeStage:DS|RegisterFile:RF|Reg_File[14][2] ; 2       ;
+; DecodeStage:DS|RegisterFile:RF|Reg_File[6][1]  ; 2       ;
+; DecodeStage:DS|RegisterFile:RF|Reg_File[7][1]  ; 2       ;
+; DecodeStage:DS|RegisterFile:RF|Reg_File[2][1]  ; 2       ;
+; DecodeStage:DS|RegisterFile:RF|Reg_File[3][1]  ; 2       ;
+; DecodeStage:DS|RegisterFile:RF|Reg_File[10][1] ; 2       ;
+; DecodeStage:DS|RegisterFile:RF|Reg_File[11][1] ; 2       ;
+; DecodeStage:DS|RegisterFile:RF|Reg_File[14][1] ; 2       ;
+; DecodeStage:DS|RegisterFile:RF|Reg_File[5][0]  ; 2       ;
+; DecodeStage:DS|RegisterFile:RF|Reg_File[7][0]  ; 2       ;
+; DecodeStage:DS|RegisterFile:RF|Reg_File[1][0]  ; 2       ;
+; DecodeStage:DS|RegisterFile:RF|Reg_File[3][0]  ; 2       ;
+; DecodeStage:DS|RegisterFile:RF|Reg_File[9][0]  ; 2       ;
+; DecodeStage:DS|RegisterFile:RF|Reg_File[11][0] ; 2       ;
+; DecodeStage:DS|RegisterFile:RF|Reg_File[13][0] ; 2       ;
+; Total number of inverted registers = 28        ;         ;
++------------------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
+; 3:1                ; 57 bits   ; 114 LEs       ; 57 LEs               ; 57 LEs                 ; Yes        ; |ARM|DecodeReg:DR|PC[29]                             ;
+; 3:1                ; 60 bits   ; 120 LEs       ; 60 LEs               ; 60 LEs                 ; Yes        ; |ARM|FetchReg:FR|Instruction[29]                     ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |ARM|DecodeReg:DR|EXE_CMD[0]                         ;
+; 17:1               ; 32 bits   ; 352 LEs       ; 320 LEs              ; 32 LEs                 ; Yes        ; |ARM|DecodeReg:DR|Val_Rm[31]                         ;
+; 17:1               ; 32 bits   ; 352 LEs       ; 320 LEs              ; 32 LEs                 ; Yes        ; |ARM|DecodeReg:DR|Val_Rn[25]                         ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; No         ; |ARM|SRAM_Controller:SC|Mux0                         ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |ARM|ExecuteStage:ES|Val1[21]                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |ARM|ExecuteStage:ES|Val2[1]                         ;
+; 16:1               ; 29 bits   ; 290 LEs       ; 174 LEs              ; 116 LEs                ; No         ; |ARM|ExecuteStage:ES|ALU:ALU1|ALU_res[21]            ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 14 LEs               ; 6 LEs                  ; No         ; |ARM|ExecuteStage:ES|ALU:ALU1|ALU_res[1]             ;
+; 64:1               ; 23 bits   ; 966 LEs       ; 966 LEs              ; 0 LEs                  ; No         ; |ARM|cache_controller:CC|Mux4                        ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; No         ; |ARM|ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[12] ;
+; 9:1                ; 6 bits    ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; No         ; |ARM|ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[5]  ;
+; 10:1               ; 6 bits    ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; No         ; |ARM|ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[18] ;
+; 11:1               ; 4 bits    ; 28 LEs        ; 24 LEs               ; 4 LEs                  ; No         ; |ARM|ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[27] ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 14 LEs               ; 2 LEs                  ; No         ; |ARM|ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[28] ;
+; 13:1               ; 2 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |ARM|ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[30] ;
+; 258:1              ; 32 bits   ; 5504 LEs      ; 5504 LEs             ; 0 LEs                  ; No         ; |ARM|cache_controller:CC|rdata_temp[18]              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "DecodeStage:DS|ControlUnit:CU"                                                           ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; up_status ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:40     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Fri Jun 02 09:55:46 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off LAB7 -c LAB7
+Info (11104): Parallel Compilation has detected 20 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 14 of the 14 physical processors detected instead.
+Info (12021): Found 1 design units, including 1 entities, in source file /education/semester7/ca_lab/lab7/verilog/writebackstage.v
+    Info (12023): Found entity 1: WriteBackStage
+Info (12021): Found 1 design units, including 1 entities, in source file /education/semester7/ca_lab/lab7/verilog/val2_gen.v
+    Info (12023): Found entity 1: Val2_Gen
+Info (12021): Found 1 design units, including 1 entities, in source file /education/semester7/ca_lab/lab7/verilog/status_reg.v
+    Info (12023): Found entity 1: status_reg
+Info (12021): Found 1 design units, including 1 entities, in source file /education/semester7/ca_lab/lab7/verilog/sram_controller.v
+    Info (12023): Found entity 1: SRAM_Controller
+Info (12021): Found 1 design units, including 1 entities, in source file /education/semester7/ca_lab/lab7/verilog/registerfile.v
+    Info (12023): Found entity 1: RegisterFile
+Info (12021): Found 1 design units, including 1 entities, in source file /education/semester7/ca_lab/lab7/verilog/memaccessstage.v
+    Info (12023): Found entity 1: MemAccessStage
+Info (12021): Found 1 design units, including 1 entities, in source file /education/semester7/ca_lab/lab7/verilog/memaccessreg.v
+    Info (12023): Found entity 1: MemAccessReg
+Info (12021): Found 1 design units, including 1 entities, in source file /education/semester7/ca_lab/lab7/verilog/hazarddetectionunit.v
+    Info (12023): Found entity 1: HazardDetectionUnit
+Info (12021): Found 1 design units, including 1 entities, in source file /education/semester7/ca_lab/lab7/verilog/freqdivider.v
+    Info (12023): Found entity 1: FreqDivider
+Info (12021): Found 1 design units, including 1 entities, in source file /education/semester7/ca_lab/lab7/verilog/forwardingunit.v
+    Info (12023): Found entity 1: ForwardingUnit
+Info (12021): Found 1 design units, including 1 entities, in source file /education/semester7/ca_lab/lab7/verilog/fetchstage.v
+    Info (12023): Found entity 1: FetchStage
+Info (12021): Found 1 design units, including 1 entities, in source file /education/semester7/ca_lab/lab7/verilog/fetchreg.v
+    Info (12023): Found entity 1: FetchReg
+Info (12021): Found 1 design units, including 1 entities, in source file /education/semester7/ca_lab/lab7/verilog/executestage.v
+    Info (12023): Found entity 1: ExecuteStage
+Info (12021): Found 1 design units, including 1 entities, in source file /education/semester7/ca_lab/lab7/verilog/executereg.v
+    Info (12023): Found entity 1: ExecuteReg
+Info (12021): Found 1 design units, including 1 entities, in source file /education/semester7/ca_lab/lab7/verilog/decodestage.v
+    Info (12023): Found entity 1: DecodeStage
+Info (12021): Found 1 design units, including 1 entities, in source file /education/semester7/ca_lab/lab7/verilog/decodereg.v
+    Info (12023): Found entity 1: DecodeReg
+Info (12021): Found 1 design units, including 1 entities, in source file /education/semester7/ca_lab/lab7/verilog/data_memory.v
+    Info (12023): Found entity 1: Data_Memory
+Info (12021): Found 1 design units, including 1 entities, in source file /education/semester7/ca_lab/lab7/verilog/controlunit.v
+    Info (12023): Found entity 1: ControlUnit
+Info (12021): Found 1 design units, including 1 entities, in source file /education/semester7/ca_lab/lab7/verilog/condition_check.v
+    Info (12023): Found entity 1: Condition_Check
+Info (12021): Found 1 design units, including 1 entities, in source file /education/semester7/ca_lab/lab7/verilog/cache_controller.v
+    Info (12023): Found entity 1: cache_controller
+Info (12021): Found 1 design units, including 1 entities, in source file /education/semester7/ca_lab/lab7/verilog/arm.v
+    Info (12023): Found entity 1: ARM
+Info (12021): Found 1 design units, including 1 entities, in source file /education/semester7/ca_lab/lab7/verilog/alu.v
+    Info (12023): Found entity 1: ALU
+Info (12021): Found 1 design units, including 1 entities, in source file /education/semester7/ca_lab/lab7/verilog/adder_addr.v
+    Info (12023): Found entity 1: adder_addr
+Warning (10236): Verilog HDL Implicit Net warning at ARM.v(319): created implicit net for "F_or_nH"
+Info (12127): Elaborating entity "ARM" for the top level hierarchy
+Warning (10034): Output port "HEX0" at ARM.v(193) has no driver
+Warning (10034): Output port "HEX1" at ARM.v(194) has no driver
+Warning (10034): Output port "HEX2" at ARM.v(195) has no driver
+Warning (10034): Output port "HEX3" at ARM.v(196) has no driver
+Warning (10034): Output port "HEX4" at ARM.v(197) has no driver
+Warning (10034): Output port "HEX5" at ARM.v(198) has no driver
+Warning (10034): Output port "HEX6" at ARM.v(199) has no driver
+Warning (10034): Output port "HEX7" at ARM.v(200) has no driver
+Warning (10034): Output port "DRAM_ADDR" at ARM.v(212) has no driver
+Warning (10034): Output port "FL_ADDR" at ARM.v(225) has no driver
+Warning (10034): Output port "OTG_ADDR" at ARM.v(240) has no driver
+Warning (10034): Output port "VGA_R" at ARM.v(282) has no driver
+Warning (10034): Output port "VGA_G" at ARM.v(283) has no driver
+Warning (10034): Output port "VGA_B" at ARM.v(284) has no driver
+Warning (10034): Output port "DRAM_LDQM" at ARM.v(213) has no driver
+Warning (10034): Output port "DRAM_UDQM" at ARM.v(214) has no driver
+Warning (10034): Output port "DRAM_WE_N" at ARM.v(215) has no driver
+Warning (10034): Output port "DRAM_CAS_N" at ARM.v(216) has no driver
+Warning (10034): Output port "DRAM_RAS_N" at ARM.v(217) has no driver
+Warning (10034): Output port "DRAM_CS_N" at ARM.v(218) has no driver
+Warning (10034): Output port "DRAM_BA_0" at ARM.v(219) has no driver
+Warning (10034): Output port "DRAM_BA_1" at ARM.v(220) has no driver
+Warning (10034): Output port "DRAM_CLK" at ARM.v(221) has no driver
+Warning (10034): Output port "DRAM_CKE" at ARM.v(222) has no driver
+Warning (10034): Output port "FL_WE_N" at ARM.v(226) has no driver
+Warning (10034): Output port "FL_RST_N" at ARM.v(227) has no driver
+Warning (10034): Output port "FL_OE_N" at ARM.v(228) has no driver
+Warning (10034): Output port "FL_CE_N" at ARM.v(229) has no driver
+Warning (10034): Output port "OTG_CS_N" at ARM.v(241) has no driver
+Warning (10034): Output port "OTG_RD_N" at ARM.v(242) has no driver
+Warning (10034): Output port "OTG_WR_N" at ARM.v(243) has no driver
+Warning (10034): Output port "OTG_RST_N" at ARM.v(244) has no driver
+Warning (10034): Output port "OTG_FSPEED" at ARM.v(245) has no driver
+Warning (10034): Output port "OTG_LSPEED" at ARM.v(246) has no driver
+Warning (10034): Output port "OTG_DACK0_N" at ARM.v(251) has no driver
+Warning (10034): Output port "OTG_DACK1_N" at ARM.v(252) has no driver
+Warning (10034): Output port "LCD_ON" at ARM.v(255) has no driver
+Warning (10034): Output port "LCD_BLON" at ARM.v(256) has no driver
+Warning (10034): Output port "LCD_RW" at ARM.v(257) has no driver
+Warning (10034): Output port "LCD_EN" at ARM.v(258) has no driver
+Warning (10034): Output port "LCD_RS" at ARM.v(259) has no driver
+Warning (10034): Output port "TDO" at ARM.v(275) has no driver
+Warning (10034): Output port "I2C_SCLK" at ARM.v(267) has no driver
+Warning (10034): Output port "VGA_CLK" at ARM.v(277) has no driver
+Warning (10034): Output port "VGA_HS" at ARM.v(278) has no driver
+Warning (10034): Output port "VGA_VS" at ARM.v(279) has no driver
+Warning (10034): Output port "VGA_BLANK" at ARM.v(280) has no driver
+Warning (10034): Output port "VGA_SYNC" at ARM.v(281) has no driver
+Warning (10034): Output port "ENET_CMD" at ARM.v(287) has no driver
+Warning (10034): Output port "ENET_CS_N" at ARM.v(288) has no driver
+Warning (10034): Output port "ENET_WR_N" at ARM.v(289) has no driver
+Warning (10034): Output port "ENET_RD_N" at ARM.v(290) has no driver
+Warning (10034): Output port "ENET_RST_N" at ARM.v(291) has no driver
+Warning (10034): Output port "ENET_CLK" at ARM.v(293) has no driver
+Warning (10034): Output port "AUD_DACDAT" at ARM.v(298) has no driver
+Warning (10034): Output port "AUD_XCK" at ARM.v(300) has no driver
+Warning (10034): Output port "TD_RESET" at ARM.v(305) has no driver
+Info (12128): Elaborating entity "FreqDivider" for hierarchy "FreqDivider:FD"
+Warning (10230): Verilog HDL assignment warning at FreqDivider.v(14): truncated value with size 32 to match size of target (1)
+Info (12128): Elaborating entity "FetchStage" for hierarchy "FetchStage:FS"
+Info (12128): Elaborating entity "FetchReg" for hierarchy "FetchReg:FR"
+Info (12128): Elaborating entity "DecodeStage" for hierarchy "DecodeStage:DS"
+Warning (10230): Verilog HDL assignment warning at DecodeStage.v(106): truncated value with size 32 to match size of target (9)
+Info (12128): Elaborating entity "RegisterFile" for hierarchy "DecodeStage:DS|RegisterFile:RF"
+Warning (10240): Verilog HDL Always Construct warning at RegisterFile.v(24): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct
+Info (12128): Elaborating entity "ControlUnit" for hierarchy "DecodeStage:DS|ControlUnit:CU"
+Warning (10235): Verilog HDL Always Construct warning at ControlUnit.v(62): variable "Instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10270): Verilog HDL Case Statement warning at ControlUnit.v(29): incomplete case statement has no default case item
+Warning (10235): Verilog HDL Always Construct warning at ControlUnit.v(104): variable "Instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Info (12128): Elaborating entity "Condition_Check" for hierarchy "DecodeStage:DS|Condition_Check:CC"
+Warning (10235): Verilog HDL Always Construct warning at Condition_Check.v(21): variable "Z_SR" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Condition_Check.v(23): variable "Z_SR" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Condition_Check.v(25): variable "C" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Condition_Check.v(27): variable "C" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Condition_Check.v(29): variable "N" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Condition_Check.v(31): variable "N" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Condition_Check.v(33): variable "V" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Condition_Check.v(35): variable "V" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Condition_Check.v(37): variable "C" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Condition_Check.v(37): variable "Z_SR" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Condition_Check.v(39): variable "C" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Condition_Check.v(39): variable "Z_SR" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Condition_Check.v(41): variable "N" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Condition_Check.v(41): variable "V" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Condition_Check.v(43): variable "N" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Condition_Check.v(43): variable "V" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Condition_Check.v(45): variable "Z_SR" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Condition_Check.v(45): variable "N" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Condition_Check.v(45): variable "V" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Condition_Check.v(47): variable "Z_SR" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Condition_Check.v(47): variable "N" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Condition_Check.v(47): variable "V" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Info (12128): Elaborating entity "DecodeReg" for hierarchy "DecodeReg:DR"
+Info (12128): Elaborating entity "status_reg" for hierarchy "status_reg:sr"
+Info (12128): Elaborating entity "ExecuteStage" for hierarchy "ExecuteStage:ES"
+Info (12128): Elaborating entity "ALU" for hierarchy "ExecuteStage:ES|ALU:ALU1"
+Info (12128): Elaborating entity "adder_addr" for hierarchy "ExecuteStage:ES|adder_addr:ADDEER_ADDR"
+Info (12128): Elaborating entity "Val2_Gen" for hierarchy "ExecuteStage:ES|Val2_Gen:VAL2GENERATOR"
+Warning (10230): Verilog HDL assignment warning at Val2_Gen.v(21): truncated value with size 40 to match size of target (32)
+Warning (10230): Verilog HDL assignment warning at Val2_Gen.v(29): truncated value with size 64 to match size of target (32)
+Warning (10240): Verilog HDL Always Construct warning at Val2_Gen.v(14): inferring latch(es) for variable "Val2", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "Val2[0]" at Val2_Gen.v(20)
+Info (10041): Inferred latch for "Val2[1]" at Val2_Gen.v(20)
+Info (10041): Inferred latch for "Val2[2]" at Val2_Gen.v(20)
+Info (10041): Inferred latch for "Val2[3]" at Val2_Gen.v(20)
+Info (10041): Inferred latch for "Val2[4]" at Val2_Gen.v(20)
+Info (10041): Inferred latch for "Val2[5]" at Val2_Gen.v(20)
+Info (10041): Inferred latch for "Val2[6]" at Val2_Gen.v(20)
+Info (10041): Inferred latch for "Val2[7]" at Val2_Gen.v(20)
+Info (10041): Inferred latch for "Val2[8]" at Val2_Gen.v(20)
+Info (10041): Inferred latch for "Val2[9]" at Val2_Gen.v(20)
+Info (10041): Inferred latch for "Val2[10]" at Val2_Gen.v(20)
+Info (10041): Inferred latch for "Val2[11]" at Val2_Gen.v(20)
+Info (10041): Inferred latch for "Val2[12]" at Val2_Gen.v(20)
+Info (10041): Inferred latch for "Val2[13]" at Val2_Gen.v(20)
+Info (10041): Inferred latch for "Val2[14]" at Val2_Gen.v(20)
+Info (10041): Inferred latch for "Val2[15]" at Val2_Gen.v(20)
+Info (10041): Inferred latch for "Val2[16]" at Val2_Gen.v(20)
+Info (10041): Inferred latch for "Val2[17]" at Val2_Gen.v(20)
+Info (10041): Inferred latch for "Val2[18]" at Val2_Gen.v(20)
+Info (10041): Inferred latch for "Val2[19]" at Val2_Gen.v(20)
+Info (10041): Inferred latch for "Val2[20]" at Val2_Gen.v(20)
+Info (10041): Inferred latch for "Val2[21]" at Val2_Gen.v(20)
+Info (10041): Inferred latch for "Val2[22]" at Val2_Gen.v(20)
+Info (10041): Inferred latch for "Val2[23]" at Val2_Gen.v(20)
+Info (10041): Inferred latch for "Val2[24]" at Val2_Gen.v(20)
+Info (10041): Inferred latch for "Val2[25]" at Val2_Gen.v(20)
+Info (10041): Inferred latch for "Val2[26]" at Val2_Gen.v(20)
+Info (10041): Inferred latch for "Val2[27]" at Val2_Gen.v(20)
+Info (10041): Inferred latch for "Val2[28]" at Val2_Gen.v(20)
+Info (10041): Inferred latch for "Val2[29]" at Val2_Gen.v(20)
+Info (10041): Inferred latch for "Val2[30]" at Val2_Gen.v(20)
+Info (10041): Inferred latch for "Val2[31]" at Val2_Gen.v(20)
+Info (12128): Elaborating entity "ExecuteReg" for hierarchy "ExecuteReg:ER"
+Info (12128): Elaborating entity "MemAccessReg" for hierarchy "MemAccessReg:MAR"
+Info (12128): Elaborating entity "WriteBackStage" for hierarchy "WriteBackStage:WBS"
+Info (12128): Elaborating entity "HazardDetectionUnit" for hierarchy "HazardDetectionUnit:HDU"
+Info (12128): Elaborating entity "ForwardingUnit" for hierarchy "ForwardingUnit:FU"
+Info (12128): Elaborating entity "SRAM_Controller" for hierarchy "SRAM_Controller:SC"
+Warning (10235): Verilog HDL Always Construct warning at SRAM_Controller.v(185): variable "temp_data" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10240): Verilog HDL Always Construct warning at SRAM_Controller.v(139): inferring latch(es) for variable "SRAM_ADDR", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "SRAM_ADDR[0]" at SRAM_Controller.v(139)
+Info (10041): Inferred latch for "SRAM_ADDR[1]" at SRAM_Controller.v(139)
+Info (10041): Inferred latch for "SRAM_ADDR[2]" at SRAM_Controller.v(139)
+Info (10041): Inferred latch for "SRAM_ADDR[3]" at SRAM_Controller.v(139)
+Info (10041): Inferred latch for "SRAM_ADDR[4]" at SRAM_Controller.v(139)
+Info (10041): Inferred latch for "SRAM_ADDR[5]" at SRAM_Controller.v(139)
+Info (10041): Inferred latch for "SRAM_ADDR[6]" at SRAM_Controller.v(139)
+Info (10041): Inferred latch for "SRAM_ADDR[7]" at SRAM_Controller.v(139)
+Info (10041): Inferred latch for "SRAM_ADDR[8]" at SRAM_Controller.v(139)
+Info (10041): Inferred latch for "SRAM_ADDR[9]" at SRAM_Controller.v(139)
+Info (10041): Inferred latch for "SRAM_ADDR[10]" at SRAM_Controller.v(139)
+Info (10041): Inferred latch for "SRAM_ADDR[11]" at SRAM_Controller.v(139)
+Info (10041): Inferred latch for "SRAM_ADDR[12]" at SRAM_Controller.v(139)
+Info (10041): Inferred latch for "SRAM_ADDR[13]" at SRAM_Controller.v(139)
+Info (10041): Inferred latch for "SRAM_ADDR[14]" at SRAM_Controller.v(139)
+Info (10041): Inferred latch for "SRAM_ADDR[15]" at SRAM_Controller.v(139)
+Info (10041): Inferred latch for "SRAM_ADDR[16]" at SRAM_Controller.v(139)
+Info (10041): Inferred latch for "SRAM_ADDR[17]" at SRAM_Controller.v(139)
+Info (12128): Elaborating entity "cache_controller" for hierarchy "cache_controller:CC"
+Warning (10240): Verilog HDL Always Construct warning at cache_controller.v(77): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at cache_controller.v(95): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[0]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[1]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[2]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[3]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[4]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[5]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[6]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[7]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[8]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[9]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[10]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[11]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[12]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[13]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[14]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[15]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[16]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[17]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[18]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[19]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[20]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[21]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[22]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[23]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[24]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[25]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[26]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[27]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[28]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[29]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[30]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val2[31]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[0]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[1]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[2]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[3]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[4]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[5]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[6]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[7]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[8]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[9]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[10]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[11]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[12]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[13]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[14]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[15]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[16]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[17]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[18]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[19]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[20]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[21]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[22]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[23]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[24]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[25]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[26]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[27]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[28]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[29]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[30]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ExecuteStage:ES|Val1[31]" feeding internal logic into a wire
+Warning (13039): The following bidir pins have no drivers
+    Warning (13040): Bidir "DRAM_DQ[0]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[1]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[2]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[3]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[4]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[5]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[6]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[7]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[8]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[9]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[10]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[11]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[12]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[13]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[14]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[15]" has no driver
+    Warning (13040): Bidir "FL_DQ[0]" has no driver
+    Warning (13040): Bidir "FL_DQ[1]" has no driver
+    Warning (13040): Bidir "FL_DQ[2]" has no driver
+    Warning (13040): Bidir "FL_DQ[3]" has no driver
+    Warning (13040): Bidir "FL_DQ[4]" has no driver
+    Warning (13040): Bidir "FL_DQ[5]" has no driver
+    Warning (13040): Bidir "FL_DQ[6]" has no driver
+    Warning (13040): Bidir "FL_DQ[7]" has no driver
+    Warning (13040): Bidir "OTG_DATA[0]" has no driver
+    Warning (13040): Bidir "OTG_DATA[1]" has no driver
+    Warning (13040): Bidir "OTG_DATA[2]" has no driver
+    Warning (13040): Bidir "OTG_DATA[3]" has no driver
+    Warning (13040): Bidir "OTG_DATA[4]" has no driver
+    Warning (13040): Bidir "OTG_DATA[5]" has no driver
+    Warning (13040): Bidir "OTG_DATA[6]" has no driver
+    Warning (13040): Bidir "OTG_DATA[7]" has no driver
+    Warning (13040): Bidir "OTG_DATA[8]" has no driver
+    Warning (13040): Bidir "OTG_DATA[9]" has no driver
+    Warning (13040): Bidir "OTG_DATA[10]" has no driver
+    Warning (13040): Bidir "OTG_DATA[11]" has no driver
+    Warning (13040): Bidir "OTG_DATA[12]" has no driver
+    Warning (13040): Bidir "OTG_DATA[13]" has no driver
+    Warning (13040): Bidir "OTG_DATA[14]" has no driver
+    Warning (13040): Bidir "OTG_DATA[15]" has no driver
+    Warning (13040): Bidir "LCD_DATA[0]" has no driver
+    Warning (13040): Bidir "LCD_DATA[1]" has no driver
+    Warning (13040): Bidir "LCD_DATA[2]" has no driver
+    Warning (13040): Bidir "LCD_DATA[3]" has no driver
+    Warning (13040): Bidir "LCD_DATA[4]" has no driver
+    Warning (13040): Bidir "LCD_DATA[5]" has no driver
+    Warning (13040): Bidir "LCD_DATA[6]" has no driver
+    Warning (13040): Bidir "LCD_DATA[7]" has no driver
+    Warning (13040): Bidir "I2C_SDAT" has no driver
+    Warning (13040): Bidir "ENET_DATA[0]" has no driver
+    Warning (13040): Bidir "ENET_DATA[1]" has no driver
+    Warning (13040): Bidir "ENET_DATA[2]" has no driver
+    Warning (13040): Bidir "ENET_DATA[3]" has no driver
+    Warning (13040): Bidir "ENET_DATA[4]" has no driver
+    Warning (13040): Bidir "ENET_DATA[5]" has no driver
+    Warning (13040): Bidir "ENET_DATA[6]" has no driver
+    Warning (13040): Bidir "ENET_DATA[7]" has no driver
+    Warning (13040): Bidir "ENET_DATA[8]" has no driver
+    Warning (13040): Bidir "ENET_DATA[9]" has no driver
+    Warning (13040): Bidir "ENET_DATA[10]" has no driver
+    Warning (13040): Bidir "ENET_DATA[11]" has no driver
+    Warning (13040): Bidir "ENET_DATA[12]" has no driver
+    Warning (13040): Bidir "ENET_DATA[13]" has no driver
+    Warning (13040): Bidir "ENET_DATA[14]" has no driver
+    Warning (13040): Bidir "ENET_DATA[15]" has no driver
+    Warning (13040): Bidir "AUD_ADCLRCK" has no driver
+    Warning (13040): Bidir "AUD_DACLRCK" has no driver
+    Warning (13040): Bidir "AUD_BCLK" has no driver
+    Warning (13040): Bidir "GPIO_0[0]" has no driver
+    Warning (13040): Bidir "GPIO_0[1]" has no driver
+    Warning (13040): Bidir "GPIO_0[2]" has no driver
+    Warning (13040): Bidir "GPIO_0[3]" has no driver
+    Warning (13040): Bidir "GPIO_0[4]" has no driver
+    Warning (13040): Bidir "GPIO_0[5]" has no driver
+    Warning (13040): Bidir "GPIO_0[6]" has no driver
+    Warning (13040): Bidir "GPIO_0[7]" has no driver
+    Warning (13040): Bidir "GPIO_0[8]" has no driver
+    Warning (13040): Bidir "GPIO_0[9]" has no driver
+    Warning (13040): Bidir "GPIO_0[10]" has no driver
+    Warning (13040): Bidir "GPIO_0[11]" has no driver
+    Warning (13040): Bidir "GPIO_0[12]" has no driver
+    Warning (13040): Bidir "GPIO_0[13]" has no driver
+    Warning (13040): Bidir "GPIO_0[14]" has no driver
+    Warning (13040): Bidir "GPIO_0[15]" has no driver
+    Warning (13040): Bidir "GPIO_0[16]" has no driver
+    Warning (13040): Bidir "GPIO_0[17]" has no driver
+    Warning (13040): Bidir "GPIO_0[18]" has no driver
+    Warning (13040): Bidir "GPIO_0[19]" has no driver
+    Warning (13040): Bidir "GPIO_0[20]" has no driver
+    Warning (13040): Bidir "GPIO_0[21]" has no driver
+    Warning (13040): Bidir "GPIO_0[22]" has no driver
+    Warning (13040): Bidir "GPIO_0[23]" has no driver
+    Warning (13040): Bidir "GPIO_0[24]" has no driver
+    Warning (13040): Bidir "GPIO_0[25]" has no driver
+    Warning (13040): Bidir "GPIO_0[26]" has no driver
+    Warning (13040): Bidir "GPIO_0[27]" has no driver
+    Warning (13040): Bidir "GPIO_0[28]" has no driver
+    Warning (13040): Bidir "GPIO_0[29]" has no driver
+    Warning (13040): Bidir "GPIO_0[30]" has no driver
+    Warning (13040): Bidir "GPIO_0[31]" has no driver
+    Warning (13040): Bidir "GPIO_0[32]" has no driver
+    Warning (13040): Bidir "GPIO_0[33]" has no driver
+    Warning (13040): Bidir "GPIO_0[34]" has no driver
+    Warning (13040): Bidir "GPIO_0[35]" has no driver
+    Warning (13040): Bidir "GPIO_1[0]" has no driver
+    Warning (13040): Bidir "GPIO_1[1]" has no driver
+    Warning (13040): Bidir "GPIO_1[2]" has no driver
+    Warning (13040): Bidir "GPIO_1[3]" has no driver
+    Warning (13040): Bidir "GPIO_1[4]" has no driver
+    Warning (13040): Bidir "GPIO_1[5]" has no driver
+    Warning (13040): Bidir "GPIO_1[6]" has no driver
+    Warning (13040): Bidir "GPIO_1[7]" has no driver
+    Warning (13040): Bidir "GPIO_1[8]" has no driver
+    Warning (13040): Bidir "GPIO_1[9]" has no driver
+    Warning (13040): Bidir "GPIO_1[10]" has no driver
+    Warning (13040): Bidir "GPIO_1[11]" has no driver
+    Warning (13040): Bidir "GPIO_1[12]" has no driver
+    Warning (13040): Bidir "GPIO_1[13]" has no driver
+    Warning (13040): Bidir "GPIO_1[14]" has no driver
+    Warning (13040): Bidir "GPIO_1[15]" has no driver
+    Warning (13040): Bidir "GPIO_1[16]" has no driver
+    Warning (13040): Bidir "GPIO_1[17]" has no driver
+    Warning (13040): Bidir "GPIO_1[18]" has no driver
+    Warning (13040): Bidir "GPIO_1[19]" has no driver
+    Warning (13040): Bidir "GPIO_1[20]" has no driver
+    Warning (13040): Bidir "GPIO_1[21]" has no driver
+    Warning (13040): Bidir "GPIO_1[22]" has no driver
+    Warning (13040): Bidir "GPIO_1[23]" has no driver
+    Warning (13040): Bidir "GPIO_1[24]" has no driver
+    Warning (13040): Bidir "GPIO_1[25]" has no driver
+    Warning (13040): Bidir "GPIO_1[26]" has no driver
+    Warning (13040): Bidir "GPIO_1[27]" has no driver
+    Warning (13040): Bidir "GPIO_1[28]" has no driver
+    Warning (13040): Bidir "GPIO_1[29]" has no driver
+    Warning (13040): Bidir "GPIO_1[30]" has no driver
+    Warning (13040): Bidir "GPIO_1[31]" has no driver
+    Warning (13040): Bidir "GPIO_1[32]" has no driver
+    Warning (13040): Bidir "GPIO_1[33]" has no driver
+    Warning (13040): Bidir "GPIO_1[34]" has no driver
+    Warning (13040): Bidir "GPIO_1[35]" has no driver
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[7]" to the node "MemAccessReg:MAR|Data_mem_res[7]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[6]" to the node "MemAccessReg:MAR|Data_mem_res[6]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[5]" to the node "MemAccessReg:MAR|Data_mem_res[5]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[4]" to the node "MemAccessReg:MAR|Data_mem_res[4]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[3]" to the node "MemAccessReg:MAR|Data_mem_res[3]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[2]" to the node "MemAccessReg:MAR|Data_mem_res[2]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[1]" to the node "MemAccessReg:MAR|Data_mem_res[1]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[0]" to the node "MemAccessReg:MAR|Data_mem_res[0]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[8]" to the node "MemAccessReg:MAR|Data_mem_res[8]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[9]" to the node "MemAccessReg:MAR|Data_mem_res[9]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[10]" to the node "MemAccessReg:MAR|Data_mem_res[10]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[11]" to the node "MemAccessReg:MAR|Data_mem_res[11]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[12]" to the node "MemAccessReg:MAR|Data_mem_res[12]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[13]" to the node "MemAccessReg:MAR|Data_mem_res[13]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[14]" to the node "MemAccessReg:MAR|Data_mem_res[14]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[15]" to the node "MemAccessReg:MAR|Data_mem_res[15]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[16]" to the node "MemAccessReg:MAR|Data_mem_res[16]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[17]" to the node "MemAccessReg:MAR|Data_mem_res[17]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[18]" to the node "MemAccessReg:MAR|Data_mem_res[18]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[23]" to the node "MemAccessReg:MAR|Data_mem_res[23]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[24]" to the node "MemAccessReg:MAR|Data_mem_res[24]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[25]" to the node "MemAccessReg:MAR|Data_mem_res[25]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[26]" to the node "MemAccessReg:MAR|Data_mem_res[26]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[27]" to the node "MemAccessReg:MAR|Data_mem_res[27]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[28]" to the node "MemAccessReg:MAR|Data_mem_res[28]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[29]" to the node "MemAccessReg:MAR|Data_mem_res[29]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[30]" to the node "MemAccessReg:MAR|Data_mem_res[30]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[31]" to the node "MemAccessReg:MAR|Data_mem_res[31]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[19]" to the node "MemAccessReg:MAR|Data_mem_res[19]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[20]" to the node "MemAccessReg:MAR|Data_mem_res[20]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[21]" to the node "MemAccessReg:MAR|Data_mem_res[21]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata[22]" to the node "MemAccessReg:MAR|Data_mem_res[22]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[7]" to the node "cache_controller:CC|rdata[7]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[6]" to the node "cache_controller:CC|rdata[6]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[5]" to the node "cache_controller:CC|rdata[5]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[4]" to the node "cache_controller:CC|rdata[4]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[3]" to the node "cache_controller:CC|rdata[3]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[2]" to the node "cache_controller:CC|rdata[2]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[1]" to the node "cache_controller:CC|rdata[1]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[0]" to the node "cache_controller:CC|rdata[0]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[8]" to the node "cache_controller:CC|rdata[8]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[9]" to the node "cache_controller:CC|rdata[9]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[10]" to the node "cache_controller:CC|rdata[10]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[11]" to the node "cache_controller:CC|rdata[11]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[12]" to the node "cache_controller:CC|rdata[12]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[13]" to the node "cache_controller:CC|rdata[13]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[14]" to the node "cache_controller:CC|rdata[14]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[15]" to the node "cache_controller:CC|rdata[15]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[16]" to the node "cache_controller:CC|rdata[16]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[17]" to the node "cache_controller:CC|rdata[17]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[18]" to the node "cache_controller:CC|rdata[18]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[23]" to the node "cache_controller:CC|rdata[23]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[24]" to the node "cache_controller:CC|rdata[24]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[25]" to the node "cache_controller:CC|rdata[25]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[26]" to the node "cache_controller:CC|rdata[26]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[27]" to the node "cache_controller:CC|rdata[27]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[28]" to the node "cache_controller:CC|rdata[28]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[29]" to the node "cache_controller:CC|rdata[29]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[30]" to the node "cache_controller:CC|rdata[30]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[31]" to the node "cache_controller:CC|rdata[31]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[19]" to the node "cache_controller:CC|rdata[19]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[20]" to the node "cache_controller:CC|rdata[20]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[21]" to the node "cache_controller:CC|rdata[21]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "cache_controller:CC|rdata_temp[22]" to the node "cache_controller:CC|rdata[22]" into an OR gate
+Warning (13012): Latch SRAM_Controller:SC|SRAM_ADDR[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal SRAM_Controller:SC|ps[1]
+Warning (13012): Latch SRAM_Controller:SC|SRAM_ADDR[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ExecuteReg:ER|ALU_result[4]
+Warning (13012): Latch SRAM_Controller:SC|SRAM_ADDR[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ExecuteReg:ER|ALU_result[8]
+Warning (13012): Latch SRAM_Controller:SC|SRAM_ADDR[8] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ExecuteReg:ER|ALU_result[9]
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|MEM_W_EN
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|imm
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|MEM_W_EN
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|imm
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|MEM_W_EN
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|imm
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|imm
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|imm
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[8] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|imm
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[9] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|imm
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[10] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|imm
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[11] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|imm
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[12] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|imm
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[13] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|imm
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[14] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|imm
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[15] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|imm
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[16] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|imm
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[17] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|imm
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[18] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|MEM_W_EN
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[31] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|MEM_W_EN
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[30] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|MEM_W_EN
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[29] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|imm
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[28] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|imm
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[27] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|imm
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[26] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|imm
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[25] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|imm
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[24] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|imm
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[23] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|MEM_W_EN
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[22] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|MEM_W_EN
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[21] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|MEM_W_EN
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[20] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|MEM_W_EN
+Warning (13012): Latch ExecuteStage:ES|Val2_Gen:VAL2GENERATOR|Val2[19] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DecodeReg:DR|MEM_W_EN
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX0[0]" is stuck at GND
+    Warning (13410): Pin "HEX0[1]" is stuck at GND
+    Warning (13410): Pin "HEX0[2]" is stuck at GND
+    Warning (13410): Pin "HEX0[3]" is stuck at GND
+    Warning (13410): Pin "HEX0[4]" is stuck at GND
+    Warning (13410): Pin "HEX0[5]" is stuck at GND
+    Warning (13410): Pin "HEX0[6]" is stuck at GND
+    Warning (13410): Pin "HEX1[0]" is stuck at GND
+    Warning (13410): Pin "HEX1[1]" is stuck at GND
+    Warning (13410): Pin "HEX1[2]" is stuck at GND
+    Warning (13410): Pin "HEX1[3]" is stuck at GND
+    Warning (13410): Pin "HEX1[4]" is stuck at GND
+    Warning (13410): Pin "HEX1[5]" is stuck at GND
+    Warning (13410): Pin "HEX1[6]" is stuck at GND
+    Warning (13410): Pin "HEX2[0]" is stuck at GND
+    Warning (13410): Pin "HEX2[1]" is stuck at GND
+    Warning (13410): Pin "HEX2[2]" is stuck at GND
+    Warning (13410): Pin "HEX2[3]" is stuck at GND
+    Warning (13410): Pin "HEX2[4]" is stuck at GND
+    Warning (13410): Pin "HEX2[5]" is stuck at GND
+    Warning (13410): Pin "HEX2[6]" is stuck at GND
+    Warning (13410): Pin "HEX3[0]" is stuck at GND
+    Warning (13410): Pin "HEX3[1]" is stuck at GND
+    Warning (13410): Pin "HEX3[2]" is stuck at GND
+    Warning (13410): Pin "HEX3[3]" is stuck at GND
+    Warning (13410): Pin "HEX3[4]" is stuck at GND
+    Warning (13410): Pin "HEX3[5]" is stuck at GND
+    Warning (13410): Pin "HEX3[6]" is stuck at GND
+    Warning (13410): Pin "HEX4[0]" is stuck at GND
+    Warning (13410): Pin "HEX4[1]" is stuck at GND
+    Warning (13410): Pin "HEX4[2]" is stuck at GND
+    Warning (13410): Pin "HEX4[3]" is stuck at GND
+    Warning (13410): Pin "HEX4[4]" is stuck at GND
+    Warning (13410): Pin "HEX4[5]" is stuck at GND
+    Warning (13410): Pin "HEX4[6]" is stuck at GND
+    Warning (13410): Pin "HEX5[0]" is stuck at GND
+    Warning (13410): Pin "HEX5[1]" is stuck at GND
+    Warning (13410): Pin "HEX5[2]" is stuck at GND
+    Warning (13410): Pin "HEX5[3]" is stuck at GND
+    Warning (13410): Pin "HEX5[4]" is stuck at GND
+    Warning (13410): Pin "HEX5[5]" is stuck at GND
+    Warning (13410): Pin "HEX5[6]" is stuck at GND
+    Warning (13410): Pin "HEX6[0]" is stuck at GND
+    Warning (13410): Pin "HEX6[1]" is stuck at GND
+    Warning (13410): Pin "HEX6[2]" is stuck at GND
+    Warning (13410): Pin "HEX6[3]" is stuck at GND
+    Warning (13410): Pin "HEX6[4]" is stuck at GND
+    Warning (13410): Pin "HEX6[5]" is stuck at GND
+    Warning (13410): Pin "HEX6[6]" is stuck at GND
+    Warning (13410): Pin "HEX7[0]" is stuck at GND
+    Warning (13410): Pin "HEX7[1]" is stuck at GND
+    Warning (13410): Pin "HEX7[2]" is stuck at GND
+    Warning (13410): Pin "HEX7[3]" is stuck at GND
+    Warning (13410): Pin "HEX7[4]" is stuck at GND
+    Warning (13410): Pin "HEX7[5]" is stuck at GND
+    Warning (13410): Pin "HEX7[6]" is stuck at GND
+    Warning (13410): Pin "LEDR[0]" is stuck at GND
+    Warning (13410): Pin "LEDR[1]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[0]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[1]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[2]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[3]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[4]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[5]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[6]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[7]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[8]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[9]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[10]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[11]" is stuck at GND
+    Warning (13410): Pin "DRAM_LDQM" is stuck at GND
+    Warning (13410): Pin "DRAM_UDQM" is stuck at GND
+    Warning (13410): Pin "DRAM_WE_N" is stuck at GND
+    Warning (13410): Pin "DRAM_CAS_N" is stuck at GND
+    Warning (13410): Pin "DRAM_RAS_N" is stuck at GND
+    Warning (13410): Pin "DRAM_CS_N" is stuck at GND
+    Warning (13410): Pin "DRAM_BA_0" is stuck at GND
+    Warning (13410): Pin "DRAM_BA_1" is stuck at GND
+    Warning (13410): Pin "DRAM_CLK" is stuck at GND
+    Warning (13410): Pin "DRAM_CKE" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[0]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[1]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[2]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[3]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[4]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[5]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[6]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[7]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[8]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[9]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[10]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[11]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[12]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[13]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[14]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[15]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[16]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[17]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[18]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[19]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[20]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[21]" is stuck at GND
+    Warning (13410): Pin "FL_WE_N" is stuck at GND
+    Warning (13410): Pin "FL_RST_N" is stuck at GND
+    Warning (13410): Pin "FL_OE_N" is stuck at GND
+    Warning (13410): Pin "FL_CE_N" is stuck at GND
+    Warning (13410): Pin "SRAM_UB_N" is stuck at GND
+    Warning (13410): Pin "SRAM_LB_N" is stuck at GND
+    Warning (13410): Pin "SRAM_CE_N" is stuck at GND
+    Warning (13410): Pin "SRAM_OE_N" is stuck at GND
+    Warning (13410): Pin "OTG_ADDR[0]" is stuck at GND
+    Warning (13410): Pin "OTG_ADDR[1]" is stuck at GND
+    Warning (13410): Pin "OTG_CS_N" is stuck at GND
+    Warning (13410): Pin "OTG_RD_N" is stuck at GND
+    Warning (13410): Pin "OTG_WR_N" is stuck at GND
+    Warning (13410): Pin "OTG_RST_N" is stuck at GND
+    Warning (13410): Pin "OTG_FSPEED" is stuck at GND
+    Warning (13410): Pin "OTG_LSPEED" is stuck at GND
+    Warning (13410): Pin "OTG_DACK0_N" is stuck at GND
+    Warning (13410): Pin "OTG_DACK1_N" is stuck at GND
+    Warning (13410): Pin "LCD_ON" is stuck at GND
+    Warning (13410): Pin "LCD_BLON" is stuck at GND
+    Warning (13410): Pin "LCD_RW" is stuck at GND
+    Warning (13410): Pin "LCD_EN" is stuck at GND
+    Warning (13410): Pin "LCD_RS" is stuck at GND
+    Warning (13410): Pin "TDO" is stuck at GND
+    Warning (13410): Pin "I2C_SCLK" is stuck at GND
+    Warning (13410): Pin "VGA_CLK" is stuck at GND
+    Warning (13410): Pin "VGA_HS" is stuck at GND
+    Warning (13410): Pin "VGA_VS" is stuck at GND
+    Warning (13410): Pin "VGA_BLANK" is stuck at GND
+    Warning (13410): Pin "VGA_SYNC" is stuck at GND
+    Warning (13410): Pin "VGA_R[0]" is stuck at GND
+    Warning (13410): Pin "VGA_R[1]" is stuck at GND
+    Warning (13410): Pin "VGA_R[2]" is stuck at GND
+    Warning (13410): Pin "VGA_R[3]" is stuck at GND
+    Warning (13410): Pin "VGA_R[4]" is stuck at GND
+    Warning (13410): Pin "VGA_R[5]" is stuck at GND
+    Warning (13410): Pin "VGA_R[6]" is stuck at GND
+    Warning (13410): Pin "VGA_R[7]" is stuck at GND
+    Warning (13410): Pin "VGA_R[8]" is stuck at GND
+    Warning (13410): Pin "VGA_R[9]" is stuck at GND
+    Warning (13410): Pin "VGA_G[0]" is stuck at GND
+    Warning (13410): Pin "VGA_G[1]" is stuck at GND
+    Warning (13410): Pin "VGA_G[2]" is stuck at GND
+    Warning (13410): Pin "VGA_G[3]" is stuck at GND
+    Warning (13410): Pin "VGA_G[4]" is stuck at GND
+    Warning (13410): Pin "VGA_G[5]" is stuck at GND
+    Warning (13410): Pin "VGA_G[6]" is stuck at GND
+    Warning (13410): Pin "VGA_G[7]" is stuck at GND
+    Warning (13410): Pin "VGA_G[8]" is stuck at GND
+    Warning (13410): Pin "VGA_G[9]" is stuck at GND
+    Warning (13410): Pin "VGA_B[0]" is stuck at GND
+    Warning (13410): Pin "VGA_B[1]" is stuck at GND
+    Warning (13410): Pin "VGA_B[2]" is stuck at GND
+    Warning (13410): Pin "VGA_B[3]" is stuck at GND
+    Warning (13410): Pin "VGA_B[4]" is stuck at GND
+    Warning (13410): Pin "VGA_B[5]" is stuck at GND
+    Warning (13410): Pin "VGA_B[6]" is stuck at GND
+    Warning (13410): Pin "VGA_B[7]" is stuck at GND
+    Warning (13410): Pin "VGA_B[8]" is stuck at GND
+    Warning (13410): Pin "VGA_B[9]" is stuck at GND
+    Warning (13410): Pin "ENET_CMD" is stuck at GND
+    Warning (13410): Pin "ENET_CS_N" is stuck at GND
+    Warning (13410): Pin "ENET_WR_N" is stuck at GND
+    Warning (13410): Pin "ENET_RD_N" is stuck at GND
+    Warning (13410): Pin "ENET_RST_N" is stuck at GND
+    Warning (13410): Pin "ENET_CLK" is stuck at GND
+    Warning (13410): Pin "AUD_DACDAT" is stuck at GND
+    Warning (13410): Pin "AUD_XCK" is stuck at GND
+    Warning (13410): Pin "TD_RESET" is stuck at GND
+Info (144001): Generated suppressed messages file D:/Education/Semester7/CA_Lab/LAB7/Quartus/output_files/LAB7.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 35 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "CLOCK_27"
+    Warning (15610): No output dependent on input pin "EXT_CLOCK"
+    Warning (15610): No output dependent on input pin "KEY[0]"
+    Warning (15610): No output dependent on input pin "KEY[1]"
+    Warning (15610): No output dependent on input pin "KEY[2]"
+    Warning (15610): No output dependent on input pin "KEY[3]"
+    Warning (15610): No output dependent on input pin "SW[9]"
+    Warning (15610): No output dependent on input pin "SW[10]"
+    Warning (15610): No output dependent on input pin "SW[11]"
+    Warning (15610): No output dependent on input pin "SW[12]"
+    Warning (15610): No output dependent on input pin "SW[13]"
+    Warning (15610): No output dependent on input pin "SW[14]"
+    Warning (15610): No output dependent on input pin "SW[15]"
+    Warning (15610): No output dependent on input pin "OTG_INT0"
+    Warning (15610): No output dependent on input pin "OTG_INT1"
+    Warning (15610): No output dependent on input pin "OTG_DREQ0"
+    Warning (15610): No output dependent on input pin "OTG_DREQ1"
+    Warning (15610): No output dependent on input pin "TDI"
+    Warning (15610): No output dependent on input pin "TCK"
+    Warning (15610): No output dependent on input pin "TCS"
+    Warning (15610): No output dependent on input pin "PS2_DAT"
+    Warning (15610): No output dependent on input pin "PS2_CLK"
+    Warning (15610): No output dependent on input pin "ENET_INT"
+    Warning (15610): No output dependent on input pin "AUD_ADCDAT"
+    Warning (15610): No output dependent on input pin "TD_DATA[0]"
+    Warning (15610): No output dependent on input pin "TD_DATA[1]"
+    Warning (15610): No output dependent on input pin "TD_DATA[2]"
+    Warning (15610): No output dependent on input pin "TD_DATA[3]"
+    Warning (15610): No output dependent on input pin "TD_DATA[4]"
+    Warning (15610): No output dependent on input pin "TD_DATA[5]"
+    Warning (15610): No output dependent on input pin "TD_DATA[6]"
+    Warning (15610): No output dependent on input pin "TD_DATA[7]"
+    Warning (15610): No output dependent on input pin "TD_HS"
+    Warning (15610): No output dependent on input pin "TD_VS"
+    Warning (15610): No output dependent on input pin "TD_CLK27"
+Info (21057): Implemented 19722 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 47 input pins
+    Info (21059): Implemented 215 output pins
+    Info (21060): Implemented 156 bidirectional pins
+    Info (21061): Implemented 19304 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 644 warnings
+    Info: Peak virtual memory: 4684 megabytes
+    Info: Processing ended: Fri Jun 02 09:56:29 2023
+    Info: Elapsed time: 00:00:43
+    Info: Total CPU time (on all processors): 00:00:14
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in D:/Education/Semester7/CA_Lab/LAB7/Quartus/output_files/LAB7.map.smsg.
+
+

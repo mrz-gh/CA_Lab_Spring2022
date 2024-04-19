@@ -1,0 +1,101 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'FreqDivider:FD|counter'
+Slack : -18.532
+TNS   : -124443.404
+
+Type  : Slow Model Setup 'DecodeReg:DR|MEM_R_EN'
+Slack : -10.617
+TNS   : -325.096
+
+Type  : Slow Model Setup 'ExecuteReg:ER|ALU_result[10]'
+Slack : -5.793
+TNS   : -5.892
+
+Type  : Slow Model Setup 'CLOCK_50'
+Slack : 3.231
+TNS   : 0.000
+
+Type  : Slow Model Hold 'ExecuteReg:ER|ALU_result[10]'
+Slack : -3.665
+TNS   : -41.083
+
+Type  : Slow Model Hold 'CLOCK_50'
+Slack : -2.961
+TNS   : -2.961
+
+Type  : Slow Model Hold 'DecodeReg:DR|MEM_R_EN'
+Slack : -2.360
+TNS   : -57.331
+
+Type  : Slow Model Hold 'FreqDivider:FD|counter'
+Slack : -1.747
+TNS   : -10.566
+
+Type  : Slow Model Minimum Pulse Width 'CLOCK_50'
+Slack : -1.380
+TNS   : -2.380
+
+Type  : Slow Model Minimum Pulse Width 'FreqDivider:FD|counter'
+Slack : -0.500
+TNS   : -10572.000
+
+Type  : Slow Model Minimum Pulse Width 'ExecuteReg:ER|ALU_result[10]'
+Slack : 0.281
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'DecodeReg:DR|MEM_R_EN'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Setup 'FreqDivider:FD|counter'
+Slack : -8.053
+TNS   : -49744.707
+
+Type  : Fast Model Setup 'DecodeReg:DR|MEM_R_EN'
+Slack : -4.432
+TNS   : -136.710
+
+Type  : Fast Model Setup 'ExecuteReg:ER|ALU_result[10]'
+Slack : -1.802
+TNS   : -1.802
+
+Type  : Fast Model Setup 'CLOCK_50'
+Slack : 2.004
+TNS   : 0.000
+
+Type  : Fast Model Hold 'ExecuteReg:ER|ALU_result[10]'
+Slack : -1.987
+TNS   : -21.970
+
+Type  : Fast Model Hold 'CLOCK_50'
+Slack : -1.624
+TNS   : -1.624
+
+Type  : Fast Model Hold 'DecodeReg:DR|MEM_R_EN'
+Slack : -1.381
+TNS   : -35.746
+
+Type  : Fast Model Hold 'FreqDivider:FD|counter'
+Slack : -1.197
+TNS   : -17.284
+
+Type  : Fast Model Minimum Pulse Width 'CLOCK_50'
+Slack : -1.380
+TNS   : -2.380
+
+Type  : Fast Model Minimum Pulse Width 'FreqDivider:FD|counter'
+Slack : -0.500
+TNS   : -10572.000
+
+Type  : Fast Model Minimum Pulse Width 'ExecuteReg:ER|ALU_result[10]'
+Slack : 0.384
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'DecodeReg:DR|MEM_R_EN'
+Slack : 0.500
+TNS   : 0.000
+
+------------------------------------------------------------

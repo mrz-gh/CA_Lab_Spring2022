@@ -1,0 +1,155 @@
+{D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/SRAM.v} {1 {vlog -work work -stats=none {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/SRAM.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module SRAM
+
+Top level modules:
+	SRAM
+
+} {} {}} {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/MemAccessStage.v} {1 {vlog -work work -stats=none {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/MemAccessStage.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module MemAccessStage
+
+Top level modules:
+	MemAccessStage
+
+} {} {}} {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/FetchStage.v} {1 {vlog -work work -stats=none {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/FetchStage.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module FetchStage
+
+Top level modules:
+	FetchStage
+
+} {} {}} {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/status_reg.v} {1 {vlog -work work -stats=none {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/status_reg.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module status_reg
+
+Top level modules:
+	status_reg
+
+} {} {}} {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/HazardDetectionUnit.v} {1 {vlog -work work -stats=none {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/HazardDetectionUnit.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module HazardDetectionUnit
+
+Top level modules:
+	HazardDetectionUnit
+
+} {} {}} {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/ControlUnit.v} {1 {vlog -work work -stats=none {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/ControlUnit.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module ControlUnit
+
+Top level modules:
+	ControlUnit
+
+} {} {}} {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/ExecuteReg.v} {1 {vlog -work work -stats=none {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/ExecuteReg.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module ExecuteReg
+
+Top level modules:
+	ExecuteReg
+
+} {} {}} {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/adder_addr.v} {1 {vlog -work work -stats=none {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/adder_addr.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module adder_addr
+
+Top level modules:
+	adder_addr
+
+} {} {}} {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/ALU.v} {1 {vlog -work work -stats=none {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/ALU.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module ALU
+
+Top level modules:
+	ALU
+
+} {} {}} {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/Data_Memory.v} {1 {vlog -work work -stats=none {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/Data_Memory.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Data_Memory
+
+Top level modules:
+	Data_Memory
+
+} {} {}} {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/DecodeReg.v} {1 {vlog -work work -stats=none {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/DecodeReg.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module DecodeReg
+
+Top level modules:
+	DecodeReg
+
+} {} {}} {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/ForwardingUnit.v} {1 {vlog -work work -stats=none {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/ForwardingUnit.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module ForwardingUnit
+
+Top level modules:
+	ForwardingUnit
+
+} {} {}} {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/Condition_Check.v} {1 {vlog -work work -stats=none {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/Condition_Check.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Condition_Check
+
+Top level modules:
+	Condition_Check
+
+} {} {}} {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/FreqDivider.v} {1 {vlog -work work -stats=none {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/FreqDivider.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module FreqDivider
+
+Top level modules:
+	FreqDivider
+
+} {} {}} {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/RegisterFile.v} {1 {vlog -work work -stats=none {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/RegisterFile.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module RegisterFile
+
+Top level modules:
+	RegisterFile
+
+} {} {}} {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/Val2_Gen.v} {1 {vlog -work work -stats=none {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/Val2_Gen.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Val2_Gen
+
+Top level modules:
+	Val2_Gen
+
+} {} {}} {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/MemAccessReg.v} {1 {vlog -work work -stats=none {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/MemAccessReg.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module MemAccessReg
+
+Top level modules:
+	MemAccessReg
+
+} {} {}} {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/ExecuteStage.v} {1 {vlog -work work -stats=none {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/ExecuteStage.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module ExecuteStage
+
+Top level modules:
+	ExecuteStage
+
+} {} {}} {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/WriteBackStage.v} {1 {vlog -work work -stats=none {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/WriteBackStage.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module WriteBackStage
+
+Top level modules:
+	WriteBackStage
+
+} {} {}} {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/TestBench.v} {1 {vlog -work work -stats=none {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/TestBench.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module testbench
+
+Top level modules:
+	testbench
+
+} {} {}} {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/DecodeStage.v} {1 {vlog -work work -stats=none {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/DecodeStage.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module DecodeStage
+
+Top level modules:
+	DecodeStage
+
+} {} {}} {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/FetchReg.v} {1 {vlog -work work -stats=none {D:/University/Term8/DS II LAB/LAB6/LAB6/Verilog/FetchReg.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module FetchReg
+
+Top level modules:
+	FetchReg
+
+} {} {}}
